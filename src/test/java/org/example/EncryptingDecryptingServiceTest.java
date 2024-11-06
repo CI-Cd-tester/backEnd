@@ -13,12 +13,22 @@ class EncryptingDecryptingServiceTest {
   }
 
   @Test
-    void encryptDecrypt() throws Exception {
+    void encryptDecryptTest() throws Exception {
 
       String testText = "This is a test text to test encrypting and decrypting";
       String encryptedText = encryptingDecryptingService.encrypt(testText);
       String decryptedText = encryptingDecryptingService.decrypt(encryptedText);
 
       assertEquals(testText, decryptedText);
+  }
+
+  @Test
+  void emptyEncryptDecryptTest() throws Exception {
+
+    String emptyString = "";
+    String encryptedText = encryptingDecryptingService.encrypt(emptyString);
+    String decryptedText = encryptingDecryptingService.decrypt(encryptedText);
+    
+    assertEquals(emptyString, decryptedText);
   }
 }
