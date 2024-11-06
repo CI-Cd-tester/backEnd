@@ -28,7 +28,16 @@ class EncryptingDecryptingServiceTest {
     String emptyString = "";
     String encryptedText = encryptingDecryptingService.encrypt(emptyString);
     String decryptedText = encryptingDecryptingService.decrypt(encryptedText);
-    
+
     assertEquals(emptyString, decryptedText);
+  }
+
+  @Test
+  void specialCharactersTest() throws Exception {
+    String testText = "_*'.!@!%∞4n/";
+    String encryptedText = encryptingDecryptingService.encrypt(testText);
+    String decryptedText = encryptingDecryptingService.decrypt(encryptedText);
+    
+    assertEquals(testText, decryptedText);
   }
 }
